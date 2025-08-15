@@ -172,8 +172,9 @@ Documentação Swagger:
 
 ## Deploy
 
-O projeto foi implantado na plataforma Render  e pode ser acessado no link:  
-**[URL_DO_DEPLOY]**
+O projeto foi implantado na plataforma Render  e pode ser acessado no link:
+
+https://exercicio-revisao-java-fiap.onrender.com
 
 ---
 
