@@ -34,6 +34,7 @@ O sistema deve permitir **criar, listar, buscar, atualizar e excluir brinquedos*
 - **Banco Oracle (Oracle SQL Developer)**
 - **Postman/Insomnia** para testes
 - **Render** para deploy em plataforma de hospedagem
+- **Intellij IDEA** para desenvolvimento da API
 
 ---
 
