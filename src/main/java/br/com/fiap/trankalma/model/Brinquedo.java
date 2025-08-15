@@ -15,21 +15,21 @@ public class Brinquedo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_brinquedo_id")
-    @Column(name = "ID")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "NOME", nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "TIPO", nullable = false)
+    @Column(name = "tipo")
     private String tipo;
 
-    @Column(name = "CLASSIFICACAO", nullable = false)
+    @Column(name = "classificacao")
     private String classificacao;
 
-    @Column(name = "TAMANHO", nullable = false)
-    private Float tamanho;
+    @Column(name = "tamanho", nullable = false)
+    private Double tamanho;
 
-    @Column(name = "PRECO", nullable = false)
+    @Column(name = "preco", nullable = false)
     private Double preco;
 }

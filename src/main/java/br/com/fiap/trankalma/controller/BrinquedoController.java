@@ -4,14 +4,12 @@ import br.com.fiap.trankalma.model.Brinquedo;
 import br.com.fiap.trankalma.service.BrinquedoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.IanaLinkRelations;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*; // ✅ Importa o @RequestBody correto
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -51,67 +49,53 @@ public class BrinquedoController {
     }
 
     @Operation(summary = "Criar novo brinquedo",
-            requestBody = @RequestBody(description = "Objeto Brinquedo a ser criado", required = true,
+            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                    description = "Objeto Brinquedo a ser criado", required = true,
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Brinquedo.class),
                             examples = @io.swagger.v3.oas.annotations.media.ExampleObject(value = """
-                    {
-                      "nome": "Carrinho de Controle Remoto",
-                      "tipo": "Veículo",
-                      "classificacao": "Infantil",
-                      "tamanho": 0.5,
-                      "preco": 150.0
-                    }
-                """))),
-            responses = {
-                    @ApiResponse(responseCode = "201", description = "Brinquedo criado com sucesso",
-                            content = @Content(mediaType = "application/json",
-                                    schema = @Schema(implementation = Brinquedo.class)))
-            })
+                                {
+                                  "nome": "Carrinho de Controle Remoto",
+                                  "tipo": "Veículo",
+                                  "classificacao": "Infantil",
+                                  "tamanho": 0.5,
+                                  "preco": 150.0
+                                }
+                            """))))
     @PostMapping
-    public EntityModel<Brinquedo> criar(@RequestBody Brinquedo brinquedo) {
+    public EntityModel<Brinquedo> criar(@RequestBody Brinquedo brinquedo) { // ✅ RequestBody correto
         Brinquedo salvo = service.salvar(brinquedo);
         return toEntityModel(salvo);
     }
 
     @Operation(summary = "Atualizar brinquedo por ID",
-            requestBody = @RequestBody(description = "Objeto Brinquedo atualizado", required = true,
+            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                    description = "Objeto Brinquedo atualizado", required = true,
                     content = @Content(mediaType = "application/json",
                             schema = @Schema(implementation = Brinquedo.class),
                             examples = @io.swagger.v3.oas.annotations.media.ExampleObject(value = """
-                    {
-                      "nome": "Carrinho de Controle Remoto",
-                      "tipo": "Veículo",
-                      "classificacao": "Infantil",
-                      "tamanho": 0.6,
-                      "preco": 160.0
-                    }
-                """))),
-            responses = {
-                    @ApiResponse(responseCode = "200", description = "Brinquedo atualizado com sucesso",
-                            content = @Content(mediaType = "application/json",
-                                    schema = @Schema(implementation = Brinquedo.class))),
-                    @ApiResponse(responseCode = "404", description = "Brinquedo não encontrado")
-            })
+                                {
+                                  "nome": "Carrinho de Controle Remoto",
+                                  "tipo": "Veículo",
+                                  "classificacao": "Infantil",
+                                  "tamanho": 0.6,
+                                  "preco": 160.0
+                                }
+                            """))))
     @PutMapping("/{id}")
     public EntityModel<Brinquedo> atualizar(@PathVariable Long id, @RequestBody Brinquedo brinquedo) {
         return toEntityModel(service.atualizar(id, brinquedo));
     }
 
     @Operation(summary = "Atualização parcial do brinquedo por ID",
-            requestBody = @RequestBody(description = "Campos do Brinquedo a atualizar", required = true,
+            requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                    description = "Campos do Brinquedo a atualizar", required = true,
                     content = @Content(mediaType = "application/json",
                             examples = @io.swagger.v3.oas.annotations.media.ExampleObject(value = """
-                    {
-                      "preco": 170.0
-                    }
-                """))),
-            responses = {
-                    @ApiResponse(responseCode = "200", description = "Brinquedo atualizado parcialmente",
-                            content = @Content(mediaType = "application/json",
-                                    schema = @Schema(implementation = Brinquedo.class))),
-                    @ApiResponse(responseCode = "404", description = "Brinquedo não encontrado")
-            })
+                                {
+                                  "preco": 170.0
+                                }
+                            """))))
     @PatchMapping("/{id}")
     public EntityModel<Brinquedo> atualizarParcial(@PathVariable Long id, @RequestBody Brinquedo brinquedo) {
         return toEntityModel(service.atualizarParcial(id, brinquedo));
