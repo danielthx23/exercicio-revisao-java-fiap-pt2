@@ -179,6 +179,30 @@ O projeto foi implantado na plataforma Render  e pode ser acessado no link:
 
 ## Exemplos no Postman/Insomnia
 
-*(inserir aqui prints das requisições GET, POST, PUT, PATCH e DELETE)*
+### GET ALL
+
+![](./assets/getall.png)
+
+### GET BY ID
+
+![](./assets/getbyid.png)
+
+### SAVE
+
+![](./assets/save.png)
+
+### PUT
+
+![](./assets/put.png)
+
+### PATCH
+
+![](./assets/patch.png)
+
+### DELETE
+
+![](./assets/delete.png)
+
+[Json Export do Insomnia](./javainsomnia.json)
 
 ---
