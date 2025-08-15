@@ -15,6 +15,7 @@ RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 FROM openjdk:21-jdk
 
 VOLUME /tmp
+EXPOSE 8081
 
 ARG DEPENDENCY=/workspace/app/target/dependency
 
