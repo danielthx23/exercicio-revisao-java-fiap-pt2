@@ -50,8 +50,7 @@ src/
      │   ├── controller/     # Endpoints REST com HATEOAS
      │   └── configuration/  # Configuração do Swagger
      └── resources/
-         ├── application.properties  # Configurações do banco e servidor
-         └── META-INF/persistence.xml (opcional)
+         └── application.properties 
 ```
 
 ---
