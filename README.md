@@ -9,9 +9,9 @@ Professor: **Dr. Marcel Stefan Wagner**
 
 ## Autores
 
-- **Daniel Saburo Akiyama** – RM 558263
-- **Danilo Correia e Silva** – RM 557540
-- **João Pedro Rodrigues da Costa** – RM 558199
+- **Daniel Saburo Akiyama** – RM 558263  
+- **Danilo Correia e Silva** – RM 557540  
+- **João Pedro Rodrigues da Costa** – RM 558199  
 
 ---
 
@@ -25,16 +25,16 @@ O sistema deve permitir **criar, listar, buscar, atualizar e excluir brinquedos*
 
 ## Tecnologias Utilizadas
 
-- **Java 21+**
-- **Spring Boot** (Maven)
-- **Spring Data JPA**
-- **Lombok**
-- **HATEOAS**
-- **Swagger / SpringDoc OpenAPI**
-- **Banco Oracle (Oracle SQL Developer)**
-- **Postman/Insomnia** para testes
-- **Render** para deploy em plataforma de hospedagem
-- **Intellij IDEA** para desenvolvimento da API
+- **Java 21+**  
+- **Spring Boot** (Maven)  
+- **Spring Data JPA**  
+- **Lombok**  
+- **HATEOAS**  
+- **Swagger / SpringDoc OpenAPI**  
+- **Banco Oracle (Oracle SQL Developer)**  
+- **Postman/Insomnia** para testes  
+- **Render** para deploy em plataforma de hospedagem  
+- **IntelliJ IDEA** (IDE utilizada para desenvolvimento)  
 
 ---
 
@@ -56,7 +56,7 @@ src/
 
 ---
 
-##  Configuração
+## Configuração do Banco
 
 ### Banco de Dados Oracle
 - Criar a tabela:
@@ -110,10 +110,13 @@ Documentação Swagger:
 
 ---
 
-## Endpoints
+## Endpoints e Explicações
 
-### 1. Listar todos os brinquedos
+### 1. Listar todos os brinquedos  
 `GET /brinquedos`
+
+- Retorna uma lista de todos os brinquedos cadastrados no banco de dados.  
+- Inclui links HATEOAS para cada recurso individual e para a coleção.  
 
 **Resposta (200)**:
 ```json
@@ -135,15 +138,21 @@ Documentação Swagger:
 
 ---
 
-### 2. Buscar brinquedo por ID
+### 2. Buscar brinquedo por ID  
 `GET /brinquedos/{id}`
+
+- Retorna um único brinquedo pelo seu **ID**.  
+- Caso não exista, retorna **404 – Not Found**.  
 
 ---
 
-### 3. Criar brinquedo
+### 3. Criar brinquedo  
 `POST /brinquedos`
 
-**Corpo JSON**:
+- Cria um novo brinquedo na base de dados.  
+- O ID é gerado automaticamente pela sequence no Oracle.  
+
+**Corpo JSON de requisição**:
 ```json
 {
   "nome": "Carrinho de Controle Remoto",
@@ -154,28 +163,49 @@ Documentação Swagger:
 }
 ```
 
+**Resposta (201 Created)** com link para o recurso criado.  
+
 ---
 
-### 4. Atualizar brinquedo (PUT)
+### 4. Atualizar brinquedo (PUT)  
 `PUT /brinquedos/{id}`
 
+- Atualiza **todos os campos** de um brinquedo existente.  
+- Caso o ID não exista, retorna **404 – Not Found**.  
+
 ---
 
-### 5. Atualização Parcial (PATCH)
+### 5. Atualização Parcial (PATCH)  
 `PATCH /brinquedos/{id}`
 
+- Permite atualizar apenas **alguns campos** do brinquedo (ex: preço ou nome).  
+- Ideal para mudanças parciais sem precisar sobrescrever o objeto inteiro.  
+
+Exemplo de corpo JSON:  
+```json
+{
+  "preco": 180.0
+}
+```
+
 ---
 
-### 6. Deletar brinquedo
+### 6. Deletar brinquedo  
 `DELETE /brinquedos/{id}`
+
+- Exclui definitivamente o brinquedo do banco de dados.  
+- Retorna **204 No Content** em caso de sucesso.  
 
 ---
 
 ## Deploy
 
-O projeto foi implantado na plataforma Render  e pode ser acessado no link:
+O projeto foi implantado na plataforma Render e pode ser acessado no link:
 
-https://exercicio-revisao-java-fiap.onrender.com
+🔗 https://exercicio-revisao-java-fiap.onrender.com  
+
+- API: https://exercicio-revisao-java-fiap.onrender.com/brinquedos  
+- Swagger: https://exercicio-revisao-java-fiap.onrender.com/swagger-ui.html  
 
 ---
 
@@ -207,4 +237,5 @@ https://exercicio-revisao-java-fiap.onrender.com
 
 [Json Export do Insomnia](./javainsomnia.json)
 
+---
 ---
