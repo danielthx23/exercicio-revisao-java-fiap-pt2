@@ -67,7 +67,7 @@ public class BrinquedoController {
                                 }
                             """))))
     @PostMapping
-    public ResponseEntity<EntityModel<Brinquedo>> criar(@RequestBody Brinquedo brinquedo) {
+    public ResponseEntity<EntityModel<Brinquedo>> criar(@org.springframework.web.bind.annotation.RequestBody Brinquedo brinquedo) {
         Brinquedo salvo = service.salvar(brinquedo);
         return ResponseEntity.status(HttpStatus.CREATED).body(toEntityModel(salvo));
     }
@@ -88,7 +88,7 @@ public class BrinquedoController {
                                 }
                             """))))
     @PutMapping("/{id}")
-    public ResponseEntity<EntityModel<Brinquedo>> atualizar(@PathVariable Long id, @RequestBody Brinquedo brinquedo) {
+    public ResponseEntity<EntityModel<Brinquedo>> atualizar(@PathVariable Long id, @org.springframework.web.bind.annotation.RequestBody Brinquedo brinquedo) {
         return ResponseEntity.ok(toEntityModel(service.atualizar(id, brinquedo)));
     }
 
@@ -103,7 +103,7 @@ public class BrinquedoController {
                                 }
                             """))))
     @PatchMapping("/{id}")
-    public ResponseEntity<EntityModel<Brinquedo>> atualizarParcial(@PathVariable Long id, @RequestBody Brinquedo brinquedo) {
+    public ResponseEntity<EntityModel<Brinquedo>> atualizarParcial(@PathVariable Long id, @org.springframework.web.bind.annotation.RequestBody Brinquedo brinquedo) {
         return ResponseEntity.ok(toEntityModel(service.atualizarParcial(id, brinquedo)));
     }
 

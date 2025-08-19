@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "TDS_TB_BRINQUEDO")
+@Table(name = "JAVA_TDS_TB_BRINQUEDO")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
