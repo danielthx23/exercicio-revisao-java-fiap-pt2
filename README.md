@@ -1,4 +1,4 @@
-# Trankalma - Sistema de Gerenciamento de Brinquedos Esportivos
+# Toyquilo - Sistema de Gerenciamento de Brinquedos Esportivos
 
 Projeto desenvolvido para o exercício de revisão da disciplina **Spring com Persistência, Lombok, HATEOAS e Deploy**  
 FIAP – Faculdade de Informática e Administração Paulista  
