@@ -4,6 +4,8 @@ import br.com.fiap.trankalma.model.Brinquedo;
 import br.com.fiap.trankalma.repository.BrinquedoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
@@ -19,7 +21,7 @@ public class BrinquedoService {
 
     public Brinquedo buscarPorId(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Brinquedo não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Brinquedo não encontrado"));
     }
 
     public Brinquedo salvar(Brinquedo brinquedo) {
@@ -47,6 +49,9 @@ public class BrinquedoService {
     }
 
     public void deletar(Long id) {
+        if (!repository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Brinquedo não encontrado");
+        }
         repository.deleteById(id);
     }
 }

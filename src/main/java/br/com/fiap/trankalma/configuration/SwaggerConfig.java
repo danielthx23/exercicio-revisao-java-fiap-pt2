@@ -16,45 +16,40 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("FIAP – Faculdade de Informática e Administração Paulista")
+                        .title("API - Sistema de Gerenciamento de Brinquedos Esportivos")
                         .description("""
-                                Curso de Tecnologia em Análise e Desenvolvimento de Sistemas (TDS)
+                                FIAP – Faculdade de Informática e Administração Paulista
+                                Curso: Tecnologia em Análise e Desenvolvimento de Sistemas (TDS)
                                 Professor: Dr. Marcel Stefan Wagner
-                                Exercício de Revisão
-                                Spring com Persistência, Lombok, HATEOAS e Deploy
-
+                                Exercício de Revisão: Spring com Persistência, Lombok, HATEOAS e Deploy
+                                
                                 **Autores:**
                                 - Daniel Saburo Akiyama (RM 558263)
                                 - Danilo Correia e Silva (RM 557540)
                                 - João Pedro Rodrigues da Costa (RM 558199)
                                 """)
-                        .version("v0.0.1"))
+                        .version("1.0.0"))
                 .externalDocs(new ExternalDocumentation()
                         .description("Repositório no GitHub")
-                        .url("-"));
+                        .url("https://github.com/danielthx23/exercicio-revisao-java-fiap"));
     }
 
     @Bean
-    public OpenApiCustomizer customerGlocalHeaderOpenApiCustomiser() {
+    public OpenApiCustomizer globalResponseMessages() {
         return openApi -> openApi.getPaths().values().forEach(pathItem ->
                 pathItem.readOperations().forEach(operation -> {
-
                     ApiResponses apiResponses = operation.getResponses();
-
-                    addApiResponseIfAbsent(apiResponses, "200", "Operação realizada com sucesso.");
-                    addApiResponseIfAbsent(apiResponses, "201", "Recurso criado com sucesso.");
-                    addApiResponseIfAbsent(apiResponses, "204", "Recurso excluído com sucesso.");
-                    addApiResponseIfAbsent(apiResponses, "400", "Erro na requisição.");
-                    addApiResponseIfAbsent(apiResponses, "401", "Token JWT inválido ou ausente.");
-                    addApiResponseIfAbsent(apiResponses, "403", "Você não tem permissão para acessar este recurso.");
-                    addApiResponseIfAbsent(apiResponses, "404", "Recurso não encontrado: id=123");
-                    addApiResponseIfAbsent(apiResponses, "500", "Erro interno do servidor. Por favor, tente novamente mais tarde.");
-
+                    addApiResponse(apiResponses, "200", "Operação realizada com sucesso.");
+                    addApiResponse(apiResponses, "201", "Recurso criado com sucesso.");
+                    addApiResponse(apiResponses, "204", "Recurso excluído com sucesso.");
+                    addApiResponse(apiResponses, "400", "Requisição inválida.");
+                    addApiResponse(apiResponses, "404", "Recurso não encontrado.");
+                    addApiResponse(apiResponses, "500", "Erro interno do servidor.");
                 })
         );
     }
 
-    private void addApiResponseIfAbsent(ApiResponses apiResponses, String code, String message) {
+    private void addApiResponse(ApiResponses apiResponses, String code, String message) {
         if (!apiResponses.containsKey(code)) {
             apiResponses.addApiResponse(code, new ApiResponse().description(message));
         }

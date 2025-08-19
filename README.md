@@ -43,14 +43,15 @@ O sistema deve permitir **criar, listar, buscar, atualizar e excluir brinquedos*
 ```
 src/
  └── main/
-     ├── java/br/com/fiap/trankalma
+     ├── java/br/com/fiap/toyquilo
      │   ├── model/          # Entidade Brinquedo
      │   ├── repository/     # Interface de persistência JPA
      │   ├── service/        # Lógica de negócio
      │   ├── controller/     # Endpoints REST com HATEOAS
      │   └── configuration/  # Configuração do Swagger
      └── resources/
-         └── application.properties 
+         └── application.properties
+Dockerfile
 ```
 
 ---
