@@ -1,4 +1,4 @@
-package br.com.fiap.trankalma.model;
+package br.com.fiap.toyquilo.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

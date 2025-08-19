@@ -1,4 +1,4 @@
-package br.com.fiap.trankalma.configuration;
+package br.com.fiap.toyquilo.configuration;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;

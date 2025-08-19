@@ -1,7 +1,7 @@
-package br.com.fiap.trankalma.controller;
+package br.com.fiap.toyquilo.controller;
 
-import br.com.fiap.trankalma.model.Brinquedo;
-import br.com.fiap.trankalma.service.BrinquedoService;
+import br.com.fiap.toyquilo.model.Brinquedo;
+import br.com.fiap.toyquilo.service.BrinquedoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;

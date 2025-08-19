@@ -1,6 +1,6 @@
-package br.com.fiap.trankalma.repository;
+package br.com.fiap.toyquilo.repository;
 
-import br.com.fiap.trankalma.model.Brinquedo;
+import br.com.fiap.toyquilo.model.Brinquedo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

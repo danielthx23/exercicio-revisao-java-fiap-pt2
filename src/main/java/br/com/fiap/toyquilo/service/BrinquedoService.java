@@ -1,7 +1,7 @@
-package br.com.fiap.trankalma.service;
+package br.com.fiap.toyquilo.service;
 
-import br.com.fiap.trankalma.model.Brinquedo;
-import br.com.fiap.trankalma.repository.BrinquedoRepository;
+import br.com.fiap.toyquilo.model.Brinquedo;
+import br.com.fiap.toyquilo.repository.BrinquedoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
