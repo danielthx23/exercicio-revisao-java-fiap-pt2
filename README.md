@@ -1,4 +1,4 @@
-# Toyquilo - Sistema de Gerenciamento de Brinquedos Esportivos
+# Toyquilo - Sistema de Gerenciamento de Brinquedos Esportivos PT 2
 
 Projeto desenvolvido para o exercício de revisão da disciplina **Spring com Persistência, Lombok, HATEOAS e Deploy**  
 FIAP – Faculdade de Informática e Administração Paulista  
@@ -31,6 +31,7 @@ O sistema deve permitir **criar, listar, buscar, atualizar e excluir brinquedos*
 - **Lombok**  
 - **HATEOAS**  
 - **Swagger / SpringDoc OpenAPI**  
+- **Thymeleaf**
 - **Banco Oracle (Oracle SQL Developer)**  
 - **Postman/Insomnia** para testes  
 - **Render** para deploy em plataforma de hospedagem  
@@ -97,11 +98,9 @@ ORACLEPASSWORD=<SENHA>
 ## Executando o Projeto
 
 ```bash
-# Clonar repositório
-git clone https://github.com/usuario/trankalma.git
-cd trankalma
+git clone https://github.com/danielthx23/exercicio-revisao-java-fiap-pt2.git
+cd exercicio-revisao-java-fiap-pt2
 
-# Executar via Maven
 mvn spring-boot:run
 ```
 
@@ -208,12 +207,69 @@ Exemplo de corpo JSON:
 
 O projeto foi implantado na plataforma Render e pode ser acessado no link:
 
-🔗 https://exercicio-revisao-java-fiap.onrender.com  
+🔗 exercicio-revisao-java-fiap-pt2.onrender.com
 
-- API: https://exercicio-revisao-java-fiap.onrender.com/brinquedos  
-- Swagger: https://exercicio-revisao-java-fiap.onrender.com/swagger-ui.html  
+- API: https://exercicio-revisao-java-fiap-pt2.onrender.com/brinquedos  
+- Swagger: https://exercicio-revisao-java-fiap-pt2.onrender.com/swagger-ui.html  
+- Interface Web: https://exercicio-revisao-java-fiap-pt2.onrender.com/web/brinquedos
 
 ---
+
+## Guia Interface Web
+
+## Aba de listagem de brinquedos
+
+**URL:**
+```
+https://exercicio-revisao-java-fiap-pt2.onrender.com/web/brinquedos
+```
+
+![](./assets/list.png)
+
+Nesta tela são exibidos todos os brinquedos cadastrados no sistema.
+
+- **Botão Criar Brinquedo** → redireciona para o formulário de criação de um novo brinquedo.
+- **Botão Editar** → abre o formulário de edição do brinquedo selecionado.
+- **Botão Excluir** → remove o brinquedo da listagem após confirmação.
+
+---
+
+## Formulário de criação de brinquedo
+
+**URL:**
+```
+https://exercicio-revisao-java-fiap-pt2.onrender.com/web/brinquedos/novo
+```
+
+![](./assets/formcriar.png)
+
+Nesta tela é possível **adicionar um novo brinquedo** ao sistema.
+
+Campos do formulário:
+- **Nome** → nome do brinquedo *(obrigatório)*.
+- **Tipo** → tipo do brinquedo (ex: eletrônico, educativo, pelúcia).
+- **Classificação** → faixa etária ou classificação indicada.
+- **Tamanho** → tamanho do brinquedo *(obrigatório, em centímetros ou outra unidade definida)*.
+- **Preço** → valor do brinquedo *(obrigatório)*.
+
+Ao preencher os campos e salvar, o brinquedo será incluído na listagem.
+
+---
+
+## Formulário de edição de brinquedo
+
+**URL:**
+```
+https://exercicio-revisao-java-fiap-pt2.onrender.com/web/brinquedos/editar/{id}
+```
+
+![](./assets/formeditar.png)
+
+Nesta tela é possível **alterar os dados de um brinquedo já cadastrado**.
+
+- Os campos vêm preenchidos com os dados atuais do brinquedo.
+- O usuário pode atualizar qualquer informação (**nome, tipo, classificação, tamanho, preço**).
+- Ao salvar, as alterações são refletidas imediatamente na listagem.
 
 ## Exemplos no Postman/Insomnia
 

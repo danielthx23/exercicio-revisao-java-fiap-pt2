@@ -17,13 +17,13 @@ public class BrinquedoWebController {
     @GetMapping
     public String listar(Model model) {
         model.addAttribute("brinquedos", service.listarTodos());
-        return "lista"; // Thymeleaf vai procurar lista.html em templates
+        return "lista"; // lista.html
     }
 
     @GetMapping("/novo")
     public String novo(Model model) {
         model.addAttribute("brinquedo", new Brinquedo());
-        return "form";
+        return "form"; // form.html
     }
 
     @PostMapping
@@ -35,12 +35,24 @@ public class BrinquedoWebController {
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model) {
         model.addAttribute("brinquedo", service.buscarPorId(id));
-        return "form";
+        return "form"; // mesmo form para edição
     }
 
-    @GetMapping("/deletar/{id}")
+    @PatchMapping("/{id}")
+    public String atualizarParcial(@PathVariable Long id, @ModelAttribute Brinquedo brinquedo) {
+        service.atualizarParcial(id, brinquedo);
+        return "redirect:/web/brinquedos";
+    }
+
+    @DeleteMapping("/{id}")
     public String deletar(@PathVariable Long id) {
         service.deletar(id);
+        return "redirect:/web/brinquedos";
+    }
+
+    @PutMapping("/{id}")
+    public String atualizar(@PathVariable Long id, @ModelAttribute Brinquedo brinquedo) {
+        service.atualizar(id, brinquedo);
         return "redirect:/web/brinquedos";
     }
 }
