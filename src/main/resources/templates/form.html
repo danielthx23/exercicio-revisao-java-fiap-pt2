@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Brinquedo</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1 th:text="${brinquedo.id} == null ? 'Novo Brinquedo' : 'Editar Brinquedo'"></h1>
+
+<form th:action="@{/web/brinquedos}" th:object="${brinquedo}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input id="nome" type="text" th:field="*{nome}" required/>
+    </div>
+
+    <div class="form-group">
+        <label for="tipo">Tipo:</label>
+        <input id="tipo" type="text" th:field="*{tipo}" required/>
+    </div>
+
+    <div class="form-group">
+        <label for="classificacao">Classificação:</label>
+        <input id="classificacao" type="text" th:field="*{classificacao}" />
+    </div>
+
+    <div class="form-group">
+        <label for="tamanho">Tamanho:</label>
+        <input id="tamanho" type="text" th:field="*{tamanho}" />
+    </div>
+
+    <div class="form-group">
+        <label for="preco">Preço:</label>
+        <input id="preco" type="number" step="0.01" th:field="*{preco}" required/>
+    </div>
+
+    <button type="submit" th:text="${brinquedo.id} == null ? 'Salvar' : 'Editar'"></button>
+    <a th:href="@{/web/brinquedos}" class="btn-voltar">Voltar</a>
+</form>
+
+</body>
+</html>

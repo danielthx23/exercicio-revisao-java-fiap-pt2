@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Brinquedos</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Toyquilo</h1>
+<h2>Controle de Brinquedos</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Classificação</th>
+        <th>Tamanho</th>
+        <th>Preço</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="b : ${brinquedos}">
+        <td th:text="${b.id}"></td>
+        <td th:text="${b.nome}"></td>
+        <td th:text="${b.tipo}"></td>
+        <td th:text="${b.classificacao}"></td>
+        <td th:text="${b.tamanho}"></td>
+        <td th:text="${b.preco}"></td>
+        <td>
+            <a th:href="@{/web/brinquedos/editar/{id}(id=${b.id})}">✏ Editar</a> |
+            <a th:href="@{/web/brinquedos/deletar/{id}(id=${b.id})}">🗑 Excluir</a>
+        </td>
+    </tr>
+</table>
+
+<div style="text-align:center; margin-top:20px;">
+    <a th:href="@{/web/brinquedos/novo}">➕ Adicionar Brinquedo</a>
+</div>
+</body>
+</html>

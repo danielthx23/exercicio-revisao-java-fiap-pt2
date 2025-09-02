@@ -50,6 +50,9 @@ src/
      │   ├── controller/     # Endpoints REST com HATEOAS
      │   └── configuration/  # Configuração do Swagger
      └── resources/
+         ├── static/
+         │   └── css/        # Estilização das páginas HTML no template/
+         ├── templates/      # Páginas do Thymeleaf
          └── application.properties
 Dockerfile
 ```
@@ -107,6 +110,9 @@ A API ficará disponível em:
 
 Documentação Swagger:  
 **http://localhost:8081/swagger-ui.html**
+
+Interface Web:  
+**http://localhost:8081/web/brinquedos**
 
 ---
 
