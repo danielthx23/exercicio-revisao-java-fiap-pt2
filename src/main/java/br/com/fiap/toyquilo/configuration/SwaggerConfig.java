@@ -8,6 +8,7 @@ import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.springdoc.core.customizers.OpenApiCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 @Configuration
 public class SwaggerConfig {
@@ -53,5 +54,10 @@ public class SwaggerConfig {
         if (!apiResponses.containsKey(code)) {
             apiResponses.addApiResponse(code, new ApiResponse().description(message));
         }
+    }
+
+    @Bean
+    public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
+        return new HiddenHttpMethodFilter();
     }
 }

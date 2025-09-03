@@ -241,7 +241,7 @@ Nesta tela são exibidos todos os brinquedos cadastrados no sistema.
 https://exercicio-revisao-java-fiap-pt2.onrender.com/web/brinquedos/novo
 ```
 
-![](./assets/formcriar.png)
+![](./assets/formsalvar.png)
 
 Nesta tela é possível **adicionar um novo brinquedo** ao sistema.
 
@@ -267,6 +267,7 @@ https://exercicio-revisao-java-fiap-pt2.onrender.com/web/brinquedos/editar/{id}
 
 Nesta tela é possível **alterar os dados de um brinquedo já cadastrado**.
 
+- Você pode escolher se vai utilizar o metodo PATCH (altera apenas os campos alterados) ou PUT (altera todos).
 - Os campos vêm preenchidos com os dados atuais do brinquedo.
 - O usuário pode atualizar qualquer informação (**nome, tipo, classificação, tamanho, preço**).
 - Ao salvar, as alterações são refletidas imediatamente na listagem.
